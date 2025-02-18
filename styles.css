@@ -1,0 +1,463 @@
+/* CSS Variablen für konsistente Werte */
+:root {
+  --font-family: 'InterDisplay', sans-serif; /* Standard-Font */
+  --bg-color: #ffffff;
+  --text-color: #333;
+  --primary-color: #e9e8df;
+  --accent-color: #e2eeb3;
+  --header-bg: rgb(255, 255, 255, 1.0);
+  --card-bg: #fff;
+  --card-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  --border-color: #ccc;
+  --highlight-border: #333;
+  --transition-speed: 0.8s;
+  --button-color: #333;
+  --button-text-color: #fff;
+  --button-hover-color: #454545;
+  --header-border-color: #9f9f9f;
+  --section-border-color: #9f9f9f;
+}
+
+/* Schriftarten einbinden */
+@font-face {
+  font-family: 'InterDisplay';
+  src: url('fonts/InterDisplay-Regular.woff2') format('woff2'),
+       url('fonts/InterDisplay-ExtraLight.woff2') format('woff2'),
+       url('fonts/InterDisplay-Light.woff2') format('woff2'),
+       url('fonts/InterDisplay-Medium.woff2') format('woff2'),
+       url('fonts/InterDisplay-SemiBold.woff2') format('woff2')
+}
+
+/* Reset & Basic Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  padding: 0px;
+  color: var(--text-color);
+}
+
+/* Header */
+header {
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: var(--header-bg);
+  border-bottom: 1px dotted var(--header-border-color);
+  margin-bottom: -0.1rem;
+}
+
+h1 {
+  flex: 1 1 10%;
+  font-size: 1em;
+  letter-spacing: 0.00rem;
+  text-transform: none;
+  font-weight: 200;
+}
+
+h2 {
+  font-size: 3.7em;
+  letter-spacing: 0rem;
+  text-transform: none;
+  font-weight: 300;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.8em;
+  letter-spacing: 0rem;
+  text-transform: none;
+  font-weight: 300;
+  margin-top: 4rem;
+}
+
+/* Overlines for Fretboards */
+p {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  color: var(--text-color);
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  margin-top: 2rem;
+}
+
+/* Main Container */
+main {
+  xmax-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0rem;
+}
+
+/* Input Section */
+#input-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+#chord-input {
+  flex: 1 1 70%;
+  padding: 15px;
+  font-size: 1em;
+  border-radius: 999px;
+  border: 0px solid var(--border-color);
+  background-color: #ffffff;
+  transition: outline var(--transition-speed);
+}
+
+#chord-input:focus {
+  outline: 0x solid var(--border-color);
+  background-color: #f9f9f9;
+}
+
+/* Button Styling */
+/* 
+button {
+  flex: 1 1 10%;
+  padding: 16px;
+  font-size: 0.7em;
+  font-weight: 200;
+  letter-spacing: 0.02rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: background-color var(--transition-speed);
+}
+
+button:hover,
+button:focus {
+  background-color: var(--button-hover-color);
+  outline: none;
+}
+
+button img {
+  width: 16px;
+  height: 16px;
+}
+*/
+
+/* Basis-Button-Styling */
+#submit-button {
+  flex: 1 1 10%;
+  border-radius: 999px;
+  background-color: var(--button-color);
+  border: none;
+  color: var(--button-text-color);
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  padding: 16px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px; /* Abstand zwischen Text und Icon */
+  position: relative;
+}
+
+#submit-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: transform 0.5s ease; /* Sanfte Bewegung des Textes */
+  transform: translateX(12px); /* Text leicht nach rechts verschieben, um ihn visuell zu zentrieren */
+}
+
+#submit-button .icon {
+  width: 16px; /* Icon-Größe */
+  height: 12px;
+  visibility: hidden; /* Icon standardmäßig unsichtbar */
+  opacity: 0;
+  transition: visibility 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+  transform: translateX(-5px); /* Icon leicht nach links verschieben */
+}
+
+#submit-button:hover .icon {
+  visibility: visible; /* Icon sichtbar machen */
+  opacity: 1;
+  transform: translateX(0); /* Icon in die normale Position bewegen */
+}
+
+#submit-button:hover span {
+  transform: translateX(-5px); /* Text sanft nach links verschieben */
+}
+
+
+
+
+
+
+
+
+/* Card Styling */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 0px;
+  border-top: 1px dotted var(--section-border-color);
+  padding: 2rem;
+  margin-bottom: 30px;
+  xbox-shadow: var(--card-shadow);
+  opacity: 0;
+  transform: translateY(0px);
+  animation: fadeInUp var(--transition-speed) forwards;
+}
+
+/* Chord Styling */
+.card__title {
+  margin-top: 8rem;
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
+
+.card__section {
+  margin-top: 8rem;
+}
+
+/* Fretboard Grid Styling */
+.fretboard {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 2px;
+}
+
+/* Abstand für das Intervall-Label */
+.interval-label {
+  margin-top: 4rem;  /* Abstand speziell für Intervalle vergrößern */
+}
+
+/* Abstand zwischen den beiden Fretboards */
+.fretboard:nth-of-type(2) {
+  margin-top: 2rem; /* Abstand vergrößern */
+  margin-bottom: 6rem;
+}
+
+
+
+.fretboard .cell {
+  border: 0px solid var(--border-color);
+  padding: 5px;
+  text-align: center;
+  min-width: 30px;
+  min-height: 30px;
+  font-size: 0.9rem;
+  border-radius: 999px;
+  transition: background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.fretboard .header {
+  background-color: var(--header-bg);
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+.fretboard .highlight {
+  background-color: var(--primary-color);
+  font-weight: 300;
+  border-color: var(--highlight-border);
+}
+
+.fretboard .chord-tone {
+  background-color: var(--accent-color);
+  border: 0px solid var(--highlight-border);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Abstand zwischen den Elementen */
+p, .fretboard {
+  margin-top: 28px; /* Mehr Abstand zwischen den Elementen */
+  margin-bottom: 28px; /* Mehr Abstand zwischen den Elementen */
+}
+
+/* Neue Style für Root und Quality */
+.root-quality {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  color: var(--text-color);
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  display: block;  /* Optional: macht es zu einem Block-Element */
+  margin-top: 16px; /* Gibt etwas Abstand nach oben */
+}
+
+/* Neue Style für Root und Quality */
+.intervals {
+  font-size: 0.7rem;
+  line-height: 1rem;
+  color: var(--text-color);
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  display: block;  /* Optional: macht es zu einem Block-Element */
+  margin-top: 5px; /* Gibt etwas Abstand nach oben */
+}
+
+/* Play-Button Styliing */
+
+.play-button {
+  /* Macht den Button zu einem flexiblen Container, damit Icon und Text nebeneinander zentriert sind */
+  display: inline-flex;
+  margin-top: 1rem;
+  align-items: center;
+  gap: 8px; /* Abstand zwischen Icon und Text */
+  background-color: #2a2a2a; /* Beispiel: Grüner Button */
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 50px; /* Rundung, sodass der Button pillenförmig erscheint */
+  font-size: 0.7em;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.play-button:hover {
+  background-color: #000000; /* Dunkleres Grün beim Hover */
+  transform: scale(1.0); /* Leichtes Vergrößern beim Hover */
+}
+
+.play-button:active {
+  transform: scale(1.0); /* Kurze Rückmeldung bei Klick */
+}
+
+/* Styling für das in den Button eingebundene SVG-Icon */
+.play-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor; /* Das Icon erbt die Textfarbe des Buttons */
+}
+
+
+
+
+
+
+
+/* Responsive Layout */
+@media (max-width: 800px) {
+  
+  
+  
+  #input-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  h1 {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #chord-input,
+  button {
+    flex: 1 1 100%;
+  }
+
+  body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    padding: 0px;
+    color: var(--text-color);
+  }
+  
+  /* Header */
+  header {
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative !important;
+    top: 0;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 1.0);
+    border-bottom: 1px dotted var(--header-border-color);
+    margin-bottom: -1rem;
+  }
+  
+  h1 {
+    flex: 1 1 10%;
+    font-size: 0.8em;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    font-weight: 200;
+  }
+  
+  h2 {
+    font-size: 2.8em;
+    letter-spacing: 0rem;
+    text-transform: none;
+    font-weight: 300;
+    margin-top: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.2em;
+    letter-spacing: 0rem;
+    text-transform: none;
+    font-weight: 300;
+    margin-top: 2rem;
+  }
+  
+  p {
+    font-size: 0.6rem;
+    line-height: 1rem;
+    color: var(--text-color);
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    margin-top: 2rem;
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    border-radius: 0px;
+    border-top: 1px dotted var(--section-border-color);
+    padding: 1rem;
+    margin-bottom: 30px;
+    xbox-shadow: var(--card-shadow);
+    opacity: 0;
+    transform: translateY(0px);
+    animation: fadeInUp var(--transition-speed) forwards;
+  }
+
+  .fretboard .cell {
+    border: 0px solid var(--border-color);
+    padding: 2px;
+    text-align: center;
+    min-width: 20px;
+    min-height: 20px;
+    font-size: 0.7rem;
+    border-radius: 999px;
+    transition: background-color var(--transition-speed), border-color var(--transition-speed);
+  }
+  
+}
