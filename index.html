@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chord2Scale</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <section id="input-section">
+      <h1>Insert your chords</h1>
+      <input 
+        type="text" 
+        id="chord-input" 
+        placeholder="e.g. C7, Dm7, Dm7b5, G9" />
+        <button id="submit-button">
+          <span>Show scales</span>
+          <img src="icons/arrow-right.svg" alt="Arrow Icon" class="icon" />
+        </button>
+    </section>
+  </header>
+  <main>
+    <section id="results-section">
+      <!-- Result cards will be injected here -->
+    </section>
+  </main>
+  <!-- Tone.js-Bibliothek (minified Version aus einem CDN) -->
+  <script src="script.js"></script>
+</body>
+</html>
