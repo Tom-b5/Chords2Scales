@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chord2Scale</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="suggestions.css" />
 </head>
 <body>
   <header>
@@ -38,12 +39,17 @@
     </section>
   </header>  
   <main>
+    <section id="suggestions">
+      <h2>Highlights</h2>
+      <div class="suggestions-grid"></div>
+    </section>    
     <section id="results-section">
       <!-- Result cards will be injected here -->
     </section>
   </main>
-  <!-- Tone.js-Bibliothek (minified Version aus einem CDN) -->
-  <script src="script.js"></script>
-  <script src="dark-mode.js"></script>
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+  <script src="dark-mode.js" defer></script>
+  <script src="suggestions.js" defer></script>
 </body>
 </html>

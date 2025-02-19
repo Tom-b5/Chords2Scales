@@ -1,0 +1,90 @@
+#suggestions {
+    padding-top: 4rem;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+#suggestions h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.suggestions-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.8rem;
+    overflow-x: scroll;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-left: 2rem; /* Erste Card Abstand */
+}
+
+/* Scrollbar für Webkit (Chrome, Safari) ausblenden */
+.suggestions-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Letzte Card Abstand */
+.suggestions-grid > .suggestion-card:last-child {
+    margin-right: 2rem;
+}
+
+.suggestion-card {
+    position: relative;
+    width: 300px;
+    aspect-ratio: 3 / 4;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    scroll-margin-inline-start: 2rem;
+}
+
+/* Hintergrundbild */
+.suggestion-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease-in-out; /* Sanfter Zoom */
+}
+
+/* Abdunkelung */
+.suggestion-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Hover-Effekt: sanfter Zoom */
+.suggestion-card:hover .suggestion-bg {
+    transform: scale(1.05);
+}
+
+/* Inhalt bleibt sichtbar */
+.suggestion-content {
+    position: relative;
+    z-index: 2;
+}
