@@ -1,135 +1,101 @@
 document.addEventListener("DOMContentLoaded", () => {
     const suggestions = [
         { 
-            title: "Blues in Am", 
-            chords: "Am, Dm, E7", 
-            text: "Klassische Blues-Progression in A-Moll", 
+            title: "Minor Blues",
+            progression: "i · iv · V · I", 
+            chords: "Am, Dm, E7, Am", 
+            text: "Blues in A Minor", 
             category: "Blues",
-            image: "images/blues-in-a.jpg"
+            image: "images/minor-blues.jpg"
         },
         { 
-            title: "Jazz Blues in G", 
-            chords: "G7, C7, D7", 
-            text: "Jazzige Blues-Progression in G", 
-            category: "Jazz Blues",
+            title: "Major Blues",
+            progression: "I · IV · V · I",  
+            chords: "G7, C7, D7, G7", 
+            text: "Major Blues in G Major", 
+            category: "Blues",
             image: "images/jazz-blues-in-g.jpg"
         },
         { 
-            title: "Pop Standard", 
+            title: "Classic Rock",
+            progression: "I · IV · V · I",  
+            chords: "A, D, E, A", 
+            text: "Make my Heart Sing in A Major", 
+            category: "Rock",
+            image: "images/classic-rock.jpg"
+        },
+        { 
+            title: "Pop ’n Roll",
+            progression: "I · V · vi · IV",  
             chords: "C, G, Am, F", 
-            text: "Sehr häufige Akkordfolge in C-Dur", 
-            category: "Pop",
-            image: "images/blues-in-a.jpg"
+            text: "Don’t Stop Believin’ in C Major", 
+            category: "Pop Rock",
+            image: "images/pop-rock.jpg"
         },
         { 
-            title: "Rock Klassiker", 
-            chords: "D, A, Bm, G", 
-            text: "Klassische Rock-Akkorde in D", 
-            category: "Rock",
-            image: "images/jazz-blues-in-g.jpg"
+            title: "Blues Rock",
+            progression: "I · IV · I · V",  
+            chords: "E, A, E, B", 
+            text: "Johnny B. Good in E Major", 
+            category: "Blues Rock",
+            image: "images/rock-classic.jpg"
         },
         { 
-            title: "Rock Klassiker", 
-            chords: "D, A, Bm, G", 
-            text: "Klassische Rock-Akkorde in D", 
+            title: "Rock Ballad",
+            progression: "vi · IV · I · V",  
+            chords: "Em, C, G, D", 
+            text: "Get Emotional in G Major", 
             category: "Rock",
-            image: "images/blues-in-a.jpg"
-        },
-        { 
-            title: "Rock Klassiker", 
-            chords: "D, A, Bm, G", 
-            text: "Klassische Rock-Akkorde in D", 
-            category: "Rock",
-            image: "images/jazz-blues-in-g.jpg"
-        },
-        { 
-            title: "Rock Klassiker", 
-            chords: "D, A, Bm, G", 
-            text: "Klassische Rock-Akkorde in D", 
-            category: "Rock",
-            image: "images/blues-in-a.jpg"
+            image: "images/rock-ballad.jpg"
         }
     ];
 
     const grid = document.querySelector(".suggestions-grid");
 
-
     function renderSuggestions(filter = null) {
-        grid.innerHTML = ""; // Grid leeren
+        grid.innerHTML = ""; // Clear grid
         const filteredSuggestions = filter 
             ? suggestions.filter(s => s.category === filter) 
             : suggestions;
-    
-        filteredSuggestions.forEach(({ title, chords, text, image }) => {
+
+        filteredSuggestions.forEach(({ title, progression, chords, text, category, image }) => {
             const card = document.createElement("div");
             card.classList.add("suggestion-card");
             card.setAttribute("data-chords", chords);
-    
-            // Bildcontainer hinzufügen
+
+            // Add image container
             card.innerHTML = `
                 <div class="suggestion-bg" style="background-image: url(${image});"></div>
                 <div class="suggestion-overlay"></div>
+                <div class="card-category">${category}</div>
                 <div class="suggestion-content">
-                    <h3 class="suggestion-title">${title}</h3>
-                    <p class="suggestion-chords">${chords}</p>
-                    <p class="suggestion-text">${text}</p>
+                    <h3 class="card-title">${title}</h3>
+                    <p class="card-progression">${progression}</p>
+                    <p class="card-chords">${chords}</p>
+                    <p class="card-description">${text}</p>
                 </div>
             `;
-    
+
+            // Event listener for clicking the entire card
+            card.addEventListener("click", () => {
+                const inputField = document.getElementById("chord-input");
+                if (inputField) {
+                    inputField.value = chords;
+                }
+
+                // Simulate clicking the submit button
+                const submitButton = document.getElementById("submit-button");
+                if (submitButton) {
+                    submitButton.click();
+                } else {
+                    console.error("Submit button not found!");
+                }
+            });
+
             grid.appendChild(card);
         });
-    };
-    
-
-    // Initial Cards anzeigen
-    renderSuggestions();
-
-    // Event Listener für "Jam"-Buttons
-    document.addEventListener("click", (event) => {
-        if (event.target.classList.contains("suggestion-button")) {
-            const card = event.target.closest(".suggestion-card");
-            const chords = card.getAttribute("data-chords");
-
-            // Akkorde ins Eingabefeld setzen
-            const inputField = document.getElementById("chord-input");
-            if (inputField) {
-                inputField.value = chords;
-            }
-
-            // Skalen berechnen und anzeigen
-            showScales(chords);
-        }
-    });
-});
-
-// Funktion zur Berechnung der passenden Skalen
-function showScales(chords) {
-    console.log(`Berechne Skalen für: ${chords}`);
-    
-    // Hier kannst du deine eigentliche Skalen-Logik einfügen:
-    if (typeof getScalesForChords === "function") {
-        const scaleResults = getScalesForChords(chords);
-        displayResults(scaleResults);
-    } else {
-        console.error("Skalen-Funktion nicht gefunden!");
     }
-}
 
-// Dummy-Funktion: Hier muss deine echte Logik hin
-function getScalesForChords(chords) {
-    // Beispielhafte Rückgabe, später durch deine Logik ersetzen
-    return [`Skala 1 für ${chords}`, `Skala 2 für ${chords}`];
-}
-
-// Ergebnisse im UI anzeigen
-function displayResults(scales) {
-    const resultsSection = document.getElementById("results-section");
-    resultsSection.innerHTML = ""; // Vorherige Ergebnisse löschen
-
-    scales.forEach(scale => {
-        const scaleCard = document.createElement("div");
-        scaleCard.classList.add("scale-card");
-        scaleCard.textContent = scale;
-        resultsSection.appendChild(scaleCard);
-    });
-}
+    // Initial rendering of suggestion cards
+    renderSuggestions();
+});

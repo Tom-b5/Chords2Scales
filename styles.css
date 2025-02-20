@@ -20,7 +20,7 @@
   /* Backgrounds */
   --bg-color: #ffffff;
   --primary-color: #e9e8df;
-  --accent-color: #e2eeb3;
+  --accent-color: #7ddbcb;
   
   /* UI-Elements */
   --header-bg: rgb(255, 255, 255, 1.0);
@@ -35,8 +35,8 @@
   /* Submit-Button */
   --submit-button-color: #333;
   --submit-button-text-color: #fff;
-  --submit-button-hover-color: #444;
-  --submit-button-font-weight: 200;
+  --submit-button-hover-color: #333;
+  --submit-button-font-weight: 300;
   --submit-button-icon: #fff;
   
   /* Lines */
@@ -69,7 +69,7 @@
   /* Backgrounds */
   --bg-color: #131313;
   --primary-color: #2c2c2c;
-  --accent-color: #4d3b55;
+  --accent-color: #3e6d65;
 
   /* UI-Elements */  
   --header-bg: #131313;
@@ -79,11 +79,11 @@
   --highlight-border: #bbb;
 
   /* Interactions */  
-  --submit-button-color: #222;
-  --submit-button-text-color: #ccc;
-  --submit-button-hover-color: #333;
+  --submit-button-color: #f3f3f3;
+  --submit-button-text-color: #333;
+  --submit-button-hover-color: #fff;
   --submit-button-font-weight: 400;
-  --submit-button-icon: #ccc;
+  --submit-button-icon: #333;
 
   /* Lines */  
   --header-border-color: #444;
