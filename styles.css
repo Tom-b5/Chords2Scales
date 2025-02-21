@@ -11,16 +11,17 @@
   --chord-info-color: #333;
   --fretboard-header-color: #888;
   --chord-input-color: #333;
+  --fredboard-chord-tone-color: #eee;
 
   /* Font-Weights */
   --h1-weight: 300;
-  --h2-weight: 300;
-  --h3-weight: 300;
+  --h2-weight: 400;
+  --h3-weight: 400;
 
   /* Backgrounds */
   --bg-color: #ffffff;
   --primary-color: #e9e8df;
-  --accent-color: #7ddbcb;
+  --accent-color: #444;
   
   /* UI-Elements */
   --header-bg: rgb(255, 255, 255, 1.0);
@@ -52,24 +53,25 @@
 :root.dark-mode {
 
   /* Text-Colors */
-  --h1-color: #bbb;
-  --h2-color: #bbb;
-  --h3-color: #bbb;
+  --h1-color: #ccc;
+  --h2-color: #ddd;
+  --h3-color: #ccc;
   --text-color: #bbb;
   --overline-color: #666;
   --chord-info-color: #666;
   --fretboard-header-color: #666;
   --chord-input-color: #eee;
+  --fredboard-chord-tone-color: #333;
 
   /* Font-Weights */
   --h1-weight: 300;
-  --h2-weight: 200;
-  --h3-weight: 200;
+  --h2-weight: 300;
+  --h3-weight: 300;
   
   /* Backgrounds */
   --bg-color: #131313;
   --primary-color: #2c2c2c;
-  --accent-color: #3e6d65;
+  --accent-color: #bbb;
 
   /* UI-Elements */  
   --header-bg: #131313;
@@ -413,18 +415,19 @@ header {
   color: var(--fretboard-header-color);
   background-color: none;
   font-size: 0.8rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .fretboard .highlight {
   background-color: var(--primary-color);
-  font-weight: 300;
+  font-weight: 500;
   border-color: var(--highlight-border);
 }
 
 .fretboard .chord-tone {
   background-color: var(--accent-color);
   border: 0px solid var(--highlight-border);
+  color: var(--fredboard-chord-tone-color);
 }
 
 /* Animation for Card-Appearance */

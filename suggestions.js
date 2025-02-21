@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const suggestions = [
         { 
             title: "Minor Blues",
-            progression: "i · iv · V · I", 
+            progression: "i · iv · V · i", 
             chords: "Am, Dm, E7, Am", 
             text: "Blues in A Minor", 
             category: "Blues",
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             image: "images/classic-rock.jpg"
         },
         { 
-            title: "Pop ’n Roll",
+            title: "Rock ’n’ Pop",
             progression: "I · V · vi · IV",  
             chords: "C, G, Am, F", 
             text: "Don’t Stop Believin’ in C Major", 
@@ -67,12 +67,12 @@ document.addEventListener("DOMContentLoaded", () => {
             card.innerHTML = `
                 <div class="suggestion-bg" style="background-image: url(${image});"></div>
                 <div class="suggestion-overlay"></div>
-                <div class="card-category">${category}</div>
+                <div class="suggestion-card-category">${category}</div>
                 <div class="suggestion-content">
-                    <h3 class="card-title">${title}</h3>
-                    <p class="card-progression">${progression}</p>
-                    <p class="card-chords">${chords}</p>
-                    <p class="card-description">${text}</p>
+                    <h3 class="suggestion-card-title">${title}</h3>
+                    <p class="suggestion-card-progression">${progression}</p>
+                    <p class="suggestion-card-chords">${chords}</p>
+                    <p class="suggestion-card-description">${text}</p>
                 </div>
             `;
 

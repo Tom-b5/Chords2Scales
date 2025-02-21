@@ -1,5 +1,5 @@
-#suggestions {
-    padding-top: 4rem;
+#artists {
+    padding-top: 2rem;
     overflow: hidden;
     position: relative;
     background-color: #111;
@@ -8,7 +8,7 @@
     background-position: center top;
 }
 
-#suggestions h2 {
+#artists h2 {
     font-size: 2rem;
     font-weight: 300;
     margin-bottom: 2rem;
@@ -16,7 +16,7 @@
     color: #fff;
 }
 
-.suggestions-grid {
+.artists-grid {
     display: flex;
     flex-wrap: nowrap;
     gap: 0.2rem;
@@ -30,23 +30,22 @@
 }
 
 /* Scrollbar für Webkit (Chrome, Safari) ausblenden */
-.suggestions-grid::-webkit-scrollbar {
+.artists-grid::-webkit-scrollbar {
     display: none;
 }
 
-.suggestion-card {
+.artist-card {
     position: relative;
-    width: 340px;
-    aspect-ratio: 3 / 4;
+    width: 800px;
+    aspect-ratio: 16 / 9;
     border-radius: 1px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
-    padding: 0rem;
+    align-items: flex-start;
     color: white;
-    text-align: center;
+    text-align: left;
     flex-shrink: 0;
     scroll-snap-align: start;
     cursor: pointer;
@@ -57,7 +56,7 @@
 }
 
 /* Hintergrundbild */
-.suggestion-bg {
+.artist-bg {
     position: absolute;
     top: 0;
     left: 0;
@@ -70,7 +69,7 @@
 }
 
 /* Abdunkelung */
-.suggestion-overlay {
+.artist-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -81,18 +80,20 @@
 }
 
 /* Hover-Effekt: sanfter Zoom */
-.suggestion-card:hover .suggestion-bg {
+.artist-card:hover .artist-bg {
     transform: scale(1.05);
 }
 
 /* Inhalt bleibt sichtbar */
-.suggestion-content {
+.artist-content {
     position: relative;
     z-index: 2;
+    padding-left: 3rem;
+    padding-bottom: 3rem;
 }
 
 /* Kategorie-Label oben links */
-.suggestion-card-category {
+.artist-card-category {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -108,8 +109,8 @@
 }
 
 /* Titel der Karte */
-.suggestion-card-title {
-    font-size: 1.6rem;
+.artist-card-title {
+    font-size: 2.6rem;
     font-weight: 200;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
@@ -119,7 +120,7 @@
 }
 
 /* Progression & Akkorde */
-.suggestion-card-progression {
+.artist-card-progression {
     font-size: 1rem;
     font-weight: 200;
     margin-bottom: 0.8rem;
@@ -128,7 +129,7 @@
     color: white;
 }
 
-.suggestion-card-chords {
+.artist-card-chords {
     font-size: 1rem;
     font-weight: 200;
     opacity: 1.0;
@@ -139,8 +140,8 @@
 }
 
 /* Beschreibungstext */
-.suggestion-card-description {
-    font-size: 0.8rem;
+.artist-card-description {
+    font-size: 1rem;
     font-weight: 300;
     opacity: 0.8;
     margin-bottom: 2rem;
@@ -152,53 +153,53 @@
 /* Responsive Layout * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 @media (max-width: 800px) {
 
-#suggestions {
+#artists {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
-#suggestions h2 {
+#artists h2 {
     font-size: 1.4rem;
     padding-left: 1rem;
 }
 
-.suggestions-grid {
+.artists-grid {
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
 /* Letzte Card Abstand */
-/*.suggestions-grid > .suggestion-card:last-child {
+/*.artists-grid > .artist-card:last-child {
     margin-right: 1rem;
 }*/
 
-.suggestion-card {
+.artist-card {
     width: 240px;
     scroll-margin-inline-start: 1rem;
 }
 
 /* Kategorie-Label oben links */
-.suggestion-card-category {
+.card-category {
     font-size: 0.5rem;
     padding: 5px 5px;
 }
 
 /* Titel der Karte */
-.suggestion-card-title {
+.artist-card-title {
     font-size: 1.2rem;
 }
 
 /* Progression & Akkorde */
-.suggestion-card-progression {
+.artist-card-progression {
     font-size: 0.8rem;
 }
 
-.suggestion-card-chords {
+.artist-card-chords {
     font-size: 0.8rem;
 }
 
 /* Beschreibungstext */
-.suggestion-card-description {
+.artist-card-description {
     font-size: 0.7rem;
 }
 
